@@ -39,7 +39,7 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
     <script>
-      function sendWhatsAppMessage() {
+      function sendTextMessage() {
         const name = document.getElementById("name").value;
         const phone = document.getElementById("phone").value;
         const note = document.getElementById("note").value;
@@ -52,13 +52,12 @@
         const targetPhoneNumber = "17175126990"; // Exemplo: "+55 11 99999-9999" (Brasil)
 
         // Montando a mensagem
-        const message = `Hello!%0A
-        My name is ${name}. Phone: ${phone}. ${note}. I'd like to get in touch.`;
+        const message = `Hello! My name is ${name}. Phone: ${phone}. ${note}. I'd like to get in touch.`;
         // Gerando o link para envio no WhatsApp
-        const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${message}`;
+        const smsUrl = `sms:${targetPhoneNumber}?body=${encodeURIComponent(message)}`;
 
-        // Abrir o link em uma nova aba
-        window.open(whatsappUrl, "_blank");
+  // Abrir o link no aplicativo de SMS
+  window.open(smsUrl, '_blank');
       }
     </script>
   </head>
@@ -360,7 +359,7 @@
                     </div>
                     <div class="ms-3">
                       <h2 class="text-primary mb-1" data-toggle="counter-up">
-                        1234
+                        +500
                       </h2>
                       <p class="fw-medium mb-0">Happy Clients</p>
                     </div>
@@ -376,7 +375,7 @@
                     </div>
                     <div class="ms-3">
                       <h2 class="text-primary mb-1" data-toggle="counter-up">
-                        1234
+                        500
                       </h2>
                       <p class="fw-medium mb-0">Projects Done</p>
                     </div>
@@ -828,7 +827,7 @@
                     ></textarea>
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-primary w-100 py-3" type="button" onclick="sendWhatsAppMessage()">
+                    <button class="btn btn-primary w-100 py-3" type="button" onclick="sendTextMessage()">
                       Submit
                     </button>
                   </div>
